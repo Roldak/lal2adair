@@ -105,6 +105,7 @@ type attribute =
   | `Pos
   | `Succ
   | `Pred
+  | `Result
   | `Unknown of string ]
 
 (* Association list for strings to the attribute.
@@ -122,7 +123,8 @@ let attributes_assoc =
   ; ("val", `Val)
   ; ("pos", `Pos)
   ; ("succ", `Succ)
-  ; ("pred", `Pred) ]
+  ; ("pred", `Pred)
+  ; ("result", `Result) ]
 
 let attribute =
   let tbl = Caml.Hashtbl.create (List.length attributes_assoc) in
