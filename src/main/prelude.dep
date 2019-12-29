@@ -1,0 +1,27 @@
+Type : Type
+
+Nat : Type
+Z : Nat
+S : Nat -> Nat
+
+Bool : Type
+False : Bool
+True : Bool
+
+Eq : a -> b -> Type
+Refl : Eq x x
+
+Lt : Nat -> Nat -> Type
+Lt_S : Lt x (S x)
+Lt_M : Lt x y -> Lt x (S y)
+Lt_Add_1 : Lt x (add x (S y))
+Lt_Add_2 : Lt x (add y (S x))
+
+Pair : Type -> Type -> Type
+PMake : t -> v -> Pair t v
+
+DPair : a:t -> P : (a -> q) -> Type
+DPMake : x:a -> P x -> DPair a P
+
+add : Nat -> Nat -> Nat
+add = match (case S (\x.\y. S (add x y)) (case Z (\y. y)))

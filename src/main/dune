@@ -1,0 +1,4 @@
+(executable
+   (name main)
+   (preprocess (pps ppx_nolazy))
+   (libraries core_kernel libadalang ada_ir translation libdependzlang))
